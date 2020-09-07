@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "df010a05-ea8b-4bb2-8b9e-8e49228b4f35",
+		"name": "Hibernate - JPA Custom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserType",
+			"item": [
+				{
+					"name": "Nueva Persona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Luismi\",\n    \"apellidos\": \"López Magaña\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/persona/",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por ID 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/persona/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por color",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/persona/color/amarillo",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								"color",
+								"amarillo"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CompositeUserType",
+			"item": [
+				{
+					"name": "Crear nueva Persona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Luismi\",\n    \"apellidos\": \"López Magaña\",\n    \"direccionLinea1\": \"C/ Camarón, 13\",\n    \"codigoPostal\": \"29000\",\n    \"poblacion\": \"Málaga\",\n    \"provincia\": \"Málaga\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/persona/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/persona/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar personas por dirección",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"linea1\": \"C/ Camarón, 13\",\n        \"codigoPostal\": \"29000\",\n        \"poblacion\": \"Málaga\",\n        \"provincia\": \"Málaga\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/persona/direccion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								"direccion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener personas por población",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/persona/poblacion/Sevilla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								"poblacion",
+								"Sevilla"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AttributeConverter",
+			"item": [
+				{
+					"name": "Crear nueva Persona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Pepe\",\n    \"apellidos\": \"Pérez Pérez\",\n    \"fechaNacimiento\": \"01/01/1973\",\n    \"fechaOnomastica\": \"12/03\",\n    \"aficiones\": [\"VIAJAR\", \"LEER\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/persona/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/persona/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"persona",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "BasicType",
+			"item": [
+				{
+					"name": "GET Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/cuerpoceleste/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"cuerpoceleste",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
